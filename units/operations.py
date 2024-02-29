@@ -7,4 +7,6 @@ def get():
     return operations_list
 
 
-
+def sort(operations_list):
+    sorted_operations = sorted(operations_list, key=lambda x: x.get('date', 'Неизвестно'), reverse=True)
+    return sorted_operations
