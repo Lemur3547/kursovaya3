@@ -1,4 +1,4 @@
-def get(operations_list):
+def get_last(operations_list):
     last_5_operations = []
     count = 0
     while len(last_5_operations) < 5:
