@@ -12,8 +12,11 @@ def get_info(operation):
     operation_info['from'] = operation.get('from', 'Неизвестно')
     if operation_info['from'] != 'Неизвестно':
         from_str = operation_info['from'].split()
-        from_str[-1] = ''.join([from_str[-1][:6], '*' * (len(from_str[-1]) - 10), from_str[-1][-4:]])
-        from_str[-1] = ' '.join([from_str[-1][i: i + 4] for i in range(0, len(from_str[-1]), 4)])
+        if from_str[0] == 'Счет':
+            from_str[-1] = f'**{from_str[-1][-4:]}'
+        else:
+            from_str[-1] = ''.join([from_str[-1][:6], '*' * (len(from_str[-1]) - 10), from_str[-1][-4:]])
+            from_str[-1] = ' '.join([from_str[-1][i: i + 4] for i in range(0, len(from_str[-1]), 4)])
         operation_info['from'] = ' '.join(from_str)
 
     operation_info['to'] = operation['to']
