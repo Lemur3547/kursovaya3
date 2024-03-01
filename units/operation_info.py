@@ -2,6 +2,14 @@ import datetime
 
 
 def get_info(operation):
+    """
+    Функция для подготовки информации об операции к выводу на экран
+    :param operation: словарь с данными об операции
+    :return: словарь вида {'date': дата формата ДД.ММ.ГГГГ, 'description': описание,
+    'from': откуда, 'to': куда,
+    'operationAmount': сумма валюта}
+    """
+
     operation_info = {}
 
     date = datetime.datetime.strptime(operation['date'], "%Y-%m-%dT%H:%M:%S.%f")
